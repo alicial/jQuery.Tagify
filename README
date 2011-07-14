@@ -4,6 +4,10 @@ Author: Alicia Liu
 
 This jQuery plug-in provides a stylized input field to create tags. It uses the jQuery UI widget.
 
+Demo
+====
+http://projects.alicialiu.net/jquery-tagify-demo/
+
 Features
 ========
     Configurable keys to create a tag
