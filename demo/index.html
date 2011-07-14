@@ -1,0 +1,102 @@
+<!-- Tagify Demo 
+Author: Alicia Liu
+-->
+
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>jQuery Tagify Demo</title>
+  <meta name="description" content="jQuery Tagify Demo">
+  <meta name="author" content="Alicia Liu">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="container">
+    <header>
+    <h1>jQuery Tagify Demo</h1>
+    <dl>
+        <dd>Author:</dd>
+        <dt><a href="http://alicialiu.net">Alicia Liu</a></dt>
+    </dl>
+    <div class='clear'></div>
+    </header>
+    <div class="col first">
+    <form>
+    <h2>Demo</h2>
+        <textarea>sample tag,cool beans</textarea>
+    <h2>Features</h2>
+    <ul>
+        <li>Configurable keys to create a tag</li>
+        <li>Backspace on empty field deletes last tag</li>
+        <li>Public methods to add and remove tags programatically</li>
+        <li>Serialize method is separate, you can call it anytime to get the values from the tag field</li>
+        <li>Uses jQuery UI widget, to support callbacks</li>
+    </ul>
+    <h2>Basic Usage</h2>
+    <p>
+    This jQuery plug-in provides a stylized input field to create tags. It uses the jQuery UI widget.
+    </p>
+    <p>
+    To use it, simply call it on any input field:
+    </p>
+    <pre>
+    $('textarea.tagme').tagify();</pre>
+
+    <p>
+    To read the values in the field, call serialize method, which both returns the tags as a delimited string
+    and enters it into the element that tagify was called on.</p>
+    <pre>
+    $('textarea.tagme').tagify('serialize');
+    </pre>
+    <p>You can do this on form submit, like this:
+    </p>
+    <input class="submit" type="submit" value="Submit"/>
+    </form>
+    </div>
+    <div class="col">
+    <h2>Pre-reqs</h2>
+    <p>To use this Plugin, you will need</p>
+    <ul>
+        <li>jQuery</li>
+        <li>jQuery UI - built using jQuery UI Widget</li>
+        <li>Tagify script: jquery.tagify.js</li>
+        <li>Tagify css: tagify-style.css</li>
+    </ul>
+    
+    <h2>Options</h2>
+    <p>Available options and their defaults are:
+        <ul>
+        <li>What user can type to complete a tag in char codes. Default: [enter], [comma]
+        <pre>
+$('textarea').( {delimiters: [13, 188]} );</pre></li>
+        <li>Delimiter for tags in original input field
+        <pre>
+$('textarea').( {outputDelimiter: ','} );</pre></li>
+        <li>CSS class to style the tagify div and tags, see Styles section
+        <pre>
+$('textarea').( {cssClass: 'tagify-container'} );</pre></li>
+        <li>Placeholder text
+        <pre>
+$('textarea').( {addTagPrompt: 'add tags'} );</pre></li>
+    </ul>
+    </p>
+
+    </div>
+  </div> <!--! end of #container -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+  <script src="jquery.tagify.js"></script>
+  <script>
+    $('textarea').tagify();
+    $('form').submit( function() {
+         var tagStr = $('textarea').tagify('serialize');
+         alert( "Got tags: " + tagStr );
+    });
+  </script>
+</body>
+</html>

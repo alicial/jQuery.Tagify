@@ -1,0 +1,140 @@
+/* Tagify Demo styles 
+Author: Alicia Liu
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+body, select, input, textarea {
+  color: #444;
+  font-size: 13px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+}
+div.col {
+  width: 400px;
+  float: left;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+div.col.first {
+  border-right: 5px dotted #38CDF1;
+}
+h1, h2 {
+  color: #38CDF1;
+  text-align: center;
+  font-weight: 500;
+  margin: 10px;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+  border-bottom: 1px dashed #38CDF1;
+  color: #38CDF1;
+}
+p {
+
+}
+pre {
+  white-space: pre; white-space: pre-wrap; word-wrap: break-word;
+  padding: 15px;
+  font-family: "Courier New", Courier;
+}
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+dl {
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+dd, dt {
+  display: block;
+  float: left;
+  margin: 10px 10px 10px 0;
+}
+p { margin-bottom: 5px; }
+ul, ol { margin-left: 2em; }
+ul li {
+  margin-bottom: 5px;
+}
+header, form {
+
+  display: block;
+  clear: both;
+   margin: 15px auto; 
+}
+input.submit {
+  font-size: 15px;
+  padding: 8px;
+  margin: 15px auto;
+}
+div.tagify-container {
+  margin: 15px auto;
+}
+
+/* Tagify styles */
+
+.tagify-container {
+    width: 300px;
+    height: 100px;
+    border: 1px solid #CCC;
+    background-color: #FFF;
+    border-radius: 2px;
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    overflow: auto;
+}
+.tagify-container > span {
+    display: inline-block;
+    padding: 3px 5px;
+    margin: 3px;
+    border-radius: 2px;
+    border: 1px solid #EEE;
+    background-color: #FFEBA1;
+    color: #888;
+}
+.tagify-container > span > a {
+    padding-left: 5px;
+    color: #EB7E14;
+    text-decoration: none;
+    font-weight: bold;
+    border: 0 none;
+}
+.tagify-container > input {
+    border: 0 none;
+    width: 100px;
+}
+.tagify-container > input:focus {
+    outline: none;
+}
