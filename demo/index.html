@@ -28,13 +28,15 @@ Author: Alicia Liu
     <h2>Demo</h2>
         <textarea>sample tag,cool beans</textarea>
     <h2>Features</h2>
-    <ul>
+    <ul class="list">
+        <li><strong>New!</strong> Supports full integration with jQuery UI Autocomplete plug-in. Try typing some programming languages into the demo.</li>
         <li>Configurable keys to create a tag</li>
         <li>Backspace on empty field deletes last tag</li>
         <li>Public methods to add and remove tags programatically</li>
         <li>Serialize method is separate, you can call it anytime to get the values from the tag field</li>
         <li>Uses jQuery UI widget, to support callbacks</li>
     </ul>
+    <br/><br/>
     <h2>Basic Usage</h2>
     <p>
     This jQuery plug-in provides a stylized input field to create tags. It uses the jQuery UI widget.
@@ -59,23 +61,36 @@ Author: Alicia Liu
     <div class="col">
     <h2>Pre-reqs</h2>
     <p>To use this Plugin, you will need</p>
-    <ul>
+    <ul class="list">
         <li>jQuery</li>
         <li>jQuery UI - built using jQuery UI Widget</li>
         <li>Tagify script: jquery.tagify.js</li>
         <li>Tagify css: tagify-style.css</li>
     </ul>
-    
-    <h2>Options</h2>
+    <br/>
+    <h2>Use with AutoComplete</h2>
+    <p>jQuery Tagify plays well with jQuery UI Autocomplete Plugin.
+    Setting the position moves the menu of suggestions to align with the
+    div containing the tags, you may also want to set the width of the menu to
+    match the width of your container div in CSS. Adding the close callback function
+    adds the selected value as a tag.</p>
+        <pre>var myTextArea = $('textarea').tagify();
+
+    myTextArea.tagify('inputField').autocomplete({
+        source: [whatever you want],
+        position: { of: myTextArea.tagify('containerDiv') },
+        close: function(event, ui) { myTextArea.tagify('add'); },
+    });</pre>
+    <h2>More Options</h2>
     <p>Available options and their defaults are:
-        <ul>
+        <ul class="list">
         <li>What user can type to complete a tag in char codes. Default: [enter], [comma]
         <pre>
 $('textarea').( {delimiters: [13, 188]} );</pre></li>
         <li>Delimiter for tags in original input field
         <pre>
 $('textarea').( {outputDelimiter: ','} );</pre></li>
-        <li>CSS class to style the tagify div and tags, see Styles section
+        <li>CSS class to style the tagify div and tags, see tagify-style.css
         <pre>
 $('textarea').( {cssClass: 'tagify-container'} );</pre></li>
         <li>Placeholder text
@@ -92,7 +107,15 @@ $('textarea').( {addTagPrompt: 'add tags'} );</pre></li>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
   <script src="jquery.tagify.js"></script>
   <script>
-    $('textarea').tagify();
+  
+    var myTextArea = $('textarea').tagify();
+
+    myTextArea.tagify('inputField').autocomplete({
+        source: ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby"],
+        position: { of: myTextArea.tagify('containerDiv') },
+        close: function(event, ui) { myTextArea.tagify('add'); },
+    });
+    
     $('form').submit( function() {
          var tagStr = $('textarea').tagify('serialize');
          alert( "Got tags: " + tagStr );

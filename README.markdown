@@ -10,13 +10,13 @@ Demo
 
 Features
 --------
-
+* _New!_ Supports full integration with jQuery UI Autocomplete plug-in. Try typing some programming languages into the demo.
 * Configurable keys to create a tag
 * Backspace on empty field deletes last tag
 * Public methods to add and remove tags programatically
 * Serialize method is separate, you can call it anytime to get the values from the tag field
 * Uses jQuery UI widget, to support callbacks
-     
+
 Pre-reqs
 --------
 To use this Plugin, you will need
@@ -45,8 +45,20 @@ You can do this on form submit, like this:
         $('textarea').tagify('serialize');
     }); 
 
-Options
--------
+Use with AutoComplete
+---------------------
+jQuery Tagify plays well with jQuery UI Autocomplete Plugin. Setting the position moves the menu of suggestions to align with the div containing the tags, you may also want to set the width of the menu to match the width of your container div in CSS. Adding the close callback function adds the selected value as a tag.
+
+    var myTextArea = $('textarea').tagify();
+ 
+    myTextArea.tagify('inputField').autocomplete({
+        source: [whatever you want],
+        position: { of: myTextArea.tagify('containerDiv') },
+        close: function(event, ui) { myTextArea.tagify('add'); },
+    });
+
+More Options
+------------
 Available options and their defaults are:
 
 * What user can type to complete a tag in char codes. Default: [enter], [comma]
@@ -57,7 +69,7 @@ Available options and their defaults are:
 
         $('textarea').( {outputDelimiter: ','} );
 
-* CSS class to style the tagify div and tags, see Styles section
+* CSS class to style the tagify div and tags, see tagify-style.css
 
         $('textarea').( {cssClass: 'tagify-container'} );
 
