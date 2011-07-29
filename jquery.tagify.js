@@ -28,8 +28,6 @@
 						
 						if (pressed == opts.delimiters[i]) {
 							self.add( $this.val() );
-							
-							$this.val('');
 							return false;
 						}
 					}
@@ -43,10 +41,6 @@
 						return;
 					}
 
-				})
-				.blur( function(e) {
-					self.add( $(this).val() );
-				    $(this).val('');
 				});
 				
 			this.tagDiv = $("<div></div>")
@@ -74,7 +68,8 @@
 		
 		// add a tag, public function		
 		add: function(text) {
-			
+    		var self = this;
+			text = text || self.tagInput.val();
 			if (text) {
 				var self = this;
 				var tagIndex = self.tags.length;
@@ -90,6 +85,7 @@
 				
 				self.tagInput.before( newTag );
 				self.tags.push( text );
+				self.tagInput.val('');
 			}
 		},
 		
@@ -122,6 +118,14 @@
 			
 			self.element.val(outputStr);
 			return outputStr;
+		},
+		
+		inputField: function() {
+		    return this.tagInput;
+		},
+		
+		containerDiv: function() {
+		    return this.tagDiv;
 		},
 		
 		// remove the div, and show original input
