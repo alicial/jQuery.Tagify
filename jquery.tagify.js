@@ -28,10 +28,16 @@
 						
 						if (pressed == opts.delimiters[i]) {
 							self.add( $this.val() );
+							e.preventDefault(); 
 							return false;
 						}
 					}
-					
+				})
+				// for some reason, in Safari, backspace is only recognized on keyup
+				.keyup( function(e) {
+					var $this = $(this),
+					    pressed = e.which;
+
 					// if backspace is hit with no input, remove the last tag
 					if (pressed == 8) { // backspace
 						if ( $this.val() == "" ) {
@@ -39,8 +45,7 @@
 							return false;
 						}
 						return;
-					}
-
+					};
 				});
 				
 			this.tagDiv = $("<div></div>")
@@ -52,7 +57,7 @@
 				.insertAfter( el.hide() );
 				
 			// if the field isn't empty, parse the field for tags, and prepopulate existing tags
-			var initVal = el.val();
+			var initVal = $.trim( el.val() );
 
 			if ( initVal ) {
 				var initTags = initVal.split( opts.outputDelimiter );
