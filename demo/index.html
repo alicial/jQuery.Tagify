@@ -1,8 +1,7 @@
+<!doctype html>
 <!-- Tagify Demo 
 Author: Alicia Liu
 -->
-
-<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -27,15 +26,6 @@ Author: Alicia Liu
     <form>
     <h2>Demo</h2>
         <textarea>sample tag,cool beans</textarea>
-    <h2>Features</h2>
-    <ul class="list">
-        <li><strong>New!</strong> Supports full integration with jQuery UI Autocomplete plug-in. Try typing some programming languages into the demo.</li>
-        <li>Configurable keys to create a tag</li>
-        <li>Backspace on empty field deletes last tag</li>
-        <li>Public methods to add and remove tags programatically</li>
-        <li>Serialize method is separate, you can call it anytime to get the values from the tag field</li>
-        <li>Uses jQuery UI widget, to support callbacks</li>
-    </ul>
     <br/><br/>
     <h2>Basic Usage</h2>
     <p>
@@ -57,17 +47,7 @@ Author: Alicia Liu
     </p>
     <input class="submit" type="submit" value="Submit"/>
     </form>
-    </div>
-    <div class="col">
-    <h2>Pre-reqs</h2>
-    <p>To use this Plugin, you will need</p>
-    <ul class="list">
-        <li>jQuery</li>
-        <li>jQuery UI - built using jQuery UI Widget</li>
-        <li>Tagify script: jquery.tagify.js</li>
-        <li>Tagify css: tagify-style.css</li>
-    </ul>
-    <br/>
+    
     <h2>Use with AutoComplete</h2>
     <p>jQuery Tagify plays well with jQuery UI Autocomplete Plugin.
     Setting the position moves the menu of suggestions to align with the
@@ -81,7 +61,39 @@ Author: Alicia Liu
         position: { of: myTextArea.tagify('containerDiv') },
         close: function(event, ui) { myTextArea.tagify('add'); },
     });</pre>
-    <h2>More Options</h2>
+    </div>
+    <div class="col">
+    <h2>Download</h2>
+    <p>Get the source files from <a href="https://github.com/alicial/jQuery.Tagify" target="_blank">GitHub</a>:</p>
+    <ul class="list">
+        <li><a href="https://github.com/alicial/jQuery.Tagify/blob/master/jquery.tagify.js" target="_blank">
+    jquery.tagify.js</a></li>
+        <li><a href="https://github.com/alicial/jQuery.Tagify/blob/master/tagify-style.css" target="_blank">tagify-style.css</a>
+        </li>
+    </ul>
+    <br/>
+    <h2>Features</h2>
+    <ul class="list">
+        <li><strong>New!</strong> Supports full integration with jQuery UI Autocomplete plug-in. Try typing some programming languages into the demo.</li>
+        <li>Configurable keys to create a tag</li>
+        <li>Backspace on empty field deletes last tag</li>
+        <li>Public methods to add and remove tags programatically</li>
+        <li>Serialize method is separate, you can call it anytime to get the values from the tag field</li>
+        <li>Uses jQuery UI widget, to support callbacks</li>
+    </ul>
+    <br/>
+    <p><b>Want to write your own plugin using jQuery UI widget?</b><br/>
+    Check out <a href="http://blog.alicialiu.net/post/8340435476/writing-a-jquery-plugin-with-jquery-ui-widget" target="_blank">my blog post</a></p>
+    
+    <br/>
+    <h2>Pre-reqs</h2>
+    <p>To use this Plugin, you will need</p>
+    <ul class="list">
+        <li>jQuery</li>
+        <li>jQuery UI - built using jQuery UI Widget</li>
+    </ul>
+    <br/>
+    <h2>More Options and Defaults</h2>
     <p>Available options and their defaults are:
         <ul class="list">
         <li>What user can type to complete a tag in char codes. Default: [enter], [comma]

@@ -45,7 +45,7 @@
 							return false;
 						}
 						return;
-					};
+					}
 				});
 				
 			this.tagDiv = $("<div></div>")
@@ -76,7 +76,6 @@
     		var self = this;
 			text = text || self.tagInput.val();
 			if (text) {
-				var self = this;
 				var tagIndex = self.tags.length;
 				
 				var removeButton = $("<a href='#'>x</a>")
@@ -138,7 +137,7 @@
 		    $.Widget.prototype.destroy.apply(this);
 			this.tagDiv.remove();
 			this.element.show();
-		},
+		}
 	});
 
 })(jQuery);
