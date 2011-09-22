@@ -33,6 +33,11 @@
 						}
 					}
 				})
+				// we record the value of the textfield before the key is pressed
+				// so that we get rid of the backspace issue
+				.keydown(function(e){
+					self.keyDownValue = $(this).val();
+				})
 				// for some reason, in Safari, backspace is only recognized on keyup
 				.keyup( function(e) {
 					var $this = $(this),
@@ -40,7 +45,7 @@
 
 					// if backspace is hit with no input, remove the last tag
 					if (pressed == 8) { // backspace
-						if ( $this.val() == "" ) {
+						if ( self.keyDownValue == '' ) {
 							self.remove();
 							return false;
 						}
