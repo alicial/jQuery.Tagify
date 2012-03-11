@@ -11,6 +11,7 @@ Demo
 Features
 --------
 * _New!_ Supports full integration with jQuery UI Autocomplete plug-in. Try typing some programming languages into the demo.
+* _New!_ Supports blur action. After blur create a tag
 * Configurable keys to create a tag
 * Backspace on empty field deletes last tag
 * Public methods to add and remove tags programatically
@@ -76,3 +77,7 @@ Available options and their defaults are:
 * Placeholder text
 
         $('textarea').( {addTagPrompt: 'add tags'} );
+        
+* Blur action for creating tags
+
+        $('textarea').( {addTagOnBlur: true} );
