@@ -28,7 +28,7 @@
 					for ( i in opts.delimiters ) {
 						
 						if (pressed == opts.delimiters[i]) {
-							self.add( $this.val() );
+							self.add( $this.val().trim() );
 							e.preventDefault(); 
 							return false;
 						}
@@ -52,7 +52,12 @@
 						}
 						return;
 					}
-				});
+				})
+				// don't let last entered word hanging there
+                		.focusout(function (e) {
+                    		var $this = $(this);
+                    		self.add($this.val().trim());
+                		});
 			
 			// Add tags blur event when required	
 			if (opts.addTagOnBlur) {
